@@ -1,0 +1,4 @@
+github.com/heroku/x v0.0.0-20180719221634-1de401e1ba0e h1:2sIH0Ui2uiO+B5xqsqyGn0DvYBPsB0ukXXc4FwTZfBE=
+github.com/heroku/x v0.0.0-20180719221634-1de401e1ba0e/go.mod h1:opmAyjmIGn9/Y+9Nia6eIaktIXIoMhhFXEFbHLMsX3Y=
+github.com/julienschmidt/httprouter v0.0.0-20180715161854-348b672cd90d h1:of6+TpypLAaiv4JxgH5aplBZnt0b65B4v4c8q5oy+Sk=
+github.com/julienschmidt/httprouter v0.0.0-20180715161854-348b672cd90d/go.mod h1:SYymIcj16QtmaHHD7aYtjjsJG7VTCxuUUipMqKk8s4w=

@@ -1,3 +1,5 @@
+// +heroku goVersion go1.11
+
 module github.com/and07/url2data
 
 require (

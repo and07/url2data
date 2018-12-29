@@ -1,1 +1,1 @@
-web: go-url-to-data
+web: url2data

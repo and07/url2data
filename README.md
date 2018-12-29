@@ -16,6 +16,17 @@ Go to heroku dashboard, go to "Setting" -> "Config Variables".
 
 ### Use
 
-```
-https://APP_ADDRESS.herokuapp.com/data?url=http://habr.ru
+```javascript
+const addScript = (src) => {
+  var elem = document.createElement("script");
+  elem.src = src;
+  document.head.appendChild(elem);
+}
+
+const getData = (data) => {
+  conosle.log(data)
+}
+
+addScript("https://APP_ADDRESS.herokuapp.com/data?url=http://habr.ru&callback=getData")
+
 ```

@@ -1,5 +1,6 @@
-# github.com/heroku/x v0.0.0-20180719221634-1de401e1ba0e
-github.com/heroku/x/hmetrics/onload
-github.com/heroku/x/hmetrics
-# github.com/julienschmidt/httprouter v0.0.0-20180715161854-348b672cd90d
+# github.com/hashicorp/go-cleanhttp v0.5.0
+github.com/hashicorp/go-cleanhttp
+# github.com/hashicorp/go-retryablehttp v0.5.0
+github.com/hashicorp/go-retryablehttp
+# github.com/julienschmidt/httprouter v1.2.0
 github.com/julienschmidt/httprouter

@@ -1,22 +1,23 @@
 
 ## Running Locally
 
-Make sure you have [Go](http://golang.org/doc/install) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+### 1. Just Deploy the same on Heroku
 
-```sh
-$ go get -u github.com/and07/url2data
-$ cd $GOPATH/src/github.com/and07/url2data
-$ heroku local
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+### 5. Paste PORT to Heroku
+
+![](images/Bot5.png)
+
+Go to heroku dashboard, go to "Setting" -> "Config Variables".
+
+- Add "Config Vars"
+- Name -> "PORT"
+- Value use  `80`.
+
+
+## Use
+
 ```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-You should also install [govendor](https://github.com/kardianos/govendor) if you are going to add any dependencies to the sample app.
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku master
-$ heroku open
+https://APP_ADDRESS.herokuapp.com/data?url=http://habr.ru
 ```

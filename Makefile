@@ -14,7 +14,7 @@ deps:
 .PHONY: .test
 test: deps
 	$(info #Running tests...)
-	$(VGO_EXEC) test ./...
+	$(VGO_EXEC) test ./... -cover
 
 .PHONY: .fast-build
 fast-build: deps

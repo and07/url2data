@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+const requestTimeout = 1 * time.Second
+
 func httpClient(requestTimeout time.Duration) *http.Client {
 	return &http.Client{
 		Timeout: requestTimeout,
@@ -20,7 +22,7 @@ func main() {
 		port = "80"
 	}
 
-	clGeter := New(httpClient(1 * time.Second))
+	clGeter := New(httpClient(requestTimeout))
 
 	log.Fatal(http.ListenAndServe(":"+port, router(clGeter)))
 }

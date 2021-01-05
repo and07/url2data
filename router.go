@@ -1,14 +1,11 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
-	"log"
 	"net/http"
 	"strings"
 
 	"github.com/julienschmidt/httprouter"
-	"golang.org/x/net/html"
 )
 
 func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -52,17 +49,20 @@ func urlData(cl Geter) func(w http.ResponseWriter, r *http.Request, _ httprouter
 		w.WriteHeader(200)
 		//w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		htmlString := strings.ReplaceAll(*res, "`", "'")
-		doc, err := html.Parse(strings.NewReader(htmlString))
-		if err != nil {
-			log.Fatal(err)
-		}
+		/*
+			doc, err := html.Parse(strings.NewReader(htmlString))
+			if err != nil {
+				log.Fatal(err)
+			}
 
-		removeScript(doc)
-		buf := bytes.NewBuffer([]byte{})
-		if err := html.Render(buf, doc); err != nil {
-			log.Fatal(err)
-		}
-		fmt.Fprintf(w, "%s(`{ 'res' : '%s'}`)", callback, buf.String())
+			buf := bytes.NewBuffer([]byte{})
+			if err := html.Render(buf, doc); err != nil {
+				log.Fatal(err)
+			}
+			log.Println(buf.String())
+		*/
+		htmlString = removeScriptsLansana(htmlString)
+		fmt.Fprintf(w, "%s(`{ 'res' : '%s'}`)", callback, htmlString)
 	}
 }
 

@@ -23,3 +23,6 @@ fast-build: deps
 
 .PHONY: .build
 build: test fast-build
+
+run:
+	go run  helper.go  http.go interface.go  main.go  router.go

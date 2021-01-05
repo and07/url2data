@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-const requestTimeout = 1 * time.Second
+const requestTimeout = 5 * time.Second
 
 func httpClient(requestTimeout time.Duration) *http.Client {
 	return &http.Client{

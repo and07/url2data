@@ -65,7 +65,7 @@ func urlData(cl Geter) func(w http.ResponseWriter, r *http.Request, _ httprouter
 			log.Println(buf.String())
 		*/
 		htmlString = removeScriptsLansana(htmlString)
-		fmt.Fprintf(w, "%s(`{'res':'%s','url':'%s'}`)", callback, htmlString, url)
+		fmt.Fprintf(w, "%s({'res':'%s','url':'%s'})", callback, htmlString, url)
 	}
 }
 

@@ -46,8 +46,8 @@ func urlData(cl Geter) func(w http.ResponseWriter, r *http.Request, _ httprouter
 			return
 		}
 
+		w.Header().Set("Content-Type", "application/javascript; charset=utf-8")
 		w.WriteHeader(200)
-		//w.Header().Set("Content-Type", "application/json; charset=utf-8")
 		htmlString := strings.ReplaceAll(*res, "`", "'")
 		/*
 			doc, err := html.Parse(strings.NewReader(htmlString))

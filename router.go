@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/julienschmidt/httprouter"
+	"golang.org/x/net/html"
 )
 
 func index(w http.ResponseWriter, r *http.Request, _ httprouter.Params) {
@@ -48,8 +49,17 @@ func urlData(cl Geter) func(w http.ResponseWriter, r *http.Request, _ httprouter
 
 		w.WriteHeader(200)
 		//w.Header().Set("Content-Type", "application/json; charset=utf-8")
-                res1 := strings.ReplaceAll(*res, "`", "'") 
-		fmt.Fprintf(w, "%s(`{ 'res' : '%s'}`)", callback, res1)
+                htmlString := strings.ReplaceAll(*res, "`", "'")
+		doc, err := html.Parse(strings.NewReader(htmlString))
+		if err != nil {
+			log.Fatal(err)
+		}
+		removeScript(doc)
+		buf := bytes.NewBuffer([]bytes{})
+		if err := html.Render(buf, doc); err != nil {
+			log.Fatal(err)
+		}
+		fmt.Fprintf(w, "%s(`{ 'res' : '%s'}`)", callback, buf.String())
 	}
 }
 

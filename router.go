@@ -49,6 +49,7 @@ func urlData(cl Geter) func(w http.ResponseWriter, r *http.Request, _ httprouter
 		w.Header().Set("Content-Type", "application/javascript; charset=utf-8")
 		w.WriteHeader(200)
 		htmlString := strings.ReplaceAll(*res, "`", "'")
+		htmlString := strings.ReplaceAll(htmlString, "\n", "")
 		/*
 			doc, err := html.Parse(strings.NewReader(htmlString))
 			if err != nil {
@@ -62,7 +63,7 @@ func urlData(cl Geter) func(w http.ResponseWriter, r *http.Request, _ httprouter
 			log.Println(buf.String())
 		*/
 		htmlString = removeScriptsLansana(htmlString)
-		fmt.Fprintf(w, "%s(`{ 'res' : '%s'}`)", callback, htmlString)
+		fmt.Fprintf(w, "%s(`{'res':'%s','url':'%s'}`)", callback, htmlString, url)
 	}
 }
 

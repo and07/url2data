@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/julienschmidt/httprouter"
 )
@@ -47,7 +48,8 @@ func urlData(cl Geter) func(w http.ResponseWriter, r *http.Request, _ httprouter
 
 		w.WriteHeader(200)
 		//w.Header().Set("Content-Type", "application/json; charset=utf-8")
-		fmt.Fprintf(w, "%s(`{ 'res' : '%s'}`)", callback, *res)
+                res1 := strings.ReplaceAll(*res, "`", "'") 
+		fmt.Fprintf(w, "%s(`{ 'res' : '%s'}`)", callback, res1)
 	}
 }
 

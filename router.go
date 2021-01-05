@@ -1,7 +1,9 @@
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"log"
 	"net/http"
 	"strings"
 
@@ -49,13 +51,14 @@ func urlData(cl Geter) func(w http.ResponseWriter, r *http.Request, _ httprouter
 
 		w.WriteHeader(200)
 		//w.Header().Set("Content-Type", "application/json; charset=utf-8")
-                htmlString := strings.ReplaceAll(*res, "`", "'")
+		htmlString := strings.ReplaceAll(*res, "`", "'")
 		doc, err := html.Parse(strings.NewReader(htmlString))
 		if err != nil {
 			log.Fatal(err)
 		}
+
 		removeScript(doc)
-		buf := bytes.NewBuffer([]bytes{})
+		buf := bytes.NewBuffer([]byte{})
 		if err := html.Render(buf, doc); err != nil {
 			log.Fatal(err)
 		}
